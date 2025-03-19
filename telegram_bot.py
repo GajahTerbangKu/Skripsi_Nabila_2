@@ -7,11 +7,12 @@ import joblib
 # Muat environment variables dari file .env
 load_dotenv()
 
-# Muat model dan data yang sudah disimpan
-dt_model = joblib.load('dt_model.joblib')
-feature_columns = joblib.load('feature_columns.joblib')
-genres = joblib.load('genres.joblib')
-df_processed = joblib.load('df_processed.joblib')
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+dt_model = joblib.load(os.path.join(current_dir, 'dt_model.joblib'))
+feature_columns = joblib.load(os.path.join(current_dir, 'feature_columns.joblib'))
+genres = joblib.load(os.path.join(current_dir, 'genres.joblib'))
+df_processed = joblib.load(os.path.join(current_dir, 'df_processed.joblib'))
 
 # Menyimpan input pengguna sementara
 user_inputs = {}
